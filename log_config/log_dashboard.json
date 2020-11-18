@@ -1,0 +1,327 @@
+{
+  "charts": [
+    {
+      "title": "actiontrail-dashboard-pv",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select count(1) as PV",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "fontColor": {
+          "g": 255,
+          "b": 255,
+          "r": 255,
+          "a": 1
+        },
+        "yPos": 0,
+        "descriptionSize": 24,
+        "width": 2,
+        "fontSize": 32,
+        "bgColor": {
+          "g": 204,
+          "b": 228,
+          "r": 44,
+          "a": 1
+        },
+        "unit": "",
+        "height": 2,
+        "unitSize": 14,
+        "xPos": 0,
+        "description": "",
+        "showTitle": true,
+        "xAxis": [
+          "PV"
+        ],
+        "displayName": "PV"
+      },
+      "type": "number"
+    },
+    {
+      "title": "actiontrail-dashboard-uv",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select count(distinct \"event.sourceIpAddress\" ) as UV",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "fontColor": {
+          "g": 255,
+          "b": 255,
+          "r": 255,
+          "a": 1
+        },
+        "yPos": 0,
+        "descriptionSize": 24,
+        "width": 2,
+        "fontSize": 32,
+        "bgColor": {
+          "g": 204,
+          "b": 228,
+          "r": 44,
+          "a": 1
+        },
+        "unit": "",
+        "height": 2,
+        "unitSize": 14,
+        "xPos": 2,
+        "description": "",
+        "showTitle": true,
+        "xAxis": [
+          "UV"
+        ],
+        "displayName": "UV"
+      },
+      "type": "number"
+    },
+    {
+      "title": "actiontrail-dashboard-event-area",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select \"event.acsRegion\" as region, count(1 ) as cnt  group by region order by cnt DESC  limit 20",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "yAxis": [
+          "cnt"
+        ],
+        "yPos": 7,
+        "height": 5,
+        "xPos": 0,
+        "legendPosition": "right",
+        "width": 5,
+        "pieType": "ring",
+        "margin": [
+          30,
+          100,
+          40,
+          50
+        ],
+        "xAxis": [
+          "region"
+        ],
+        "displayName": "事件区域分布"
+      },
+      "type": "pie"
+    },
+    {
+      "title": "actiontrail-dashboard-event-type",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select \"event.eventType\" as event_type, count(1 ) as cnt  group by event_type order by cnt desc limit 20",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "yAxis": [
+          "cnt"
+        ],
+        "yPos": 12,
+        "height": 5,
+        "xPos": 0,
+        "legendPosition": "right",
+        "width": 5,
+        "pieType": "ring",
+        "margin": [
+          30,
+          100,
+          40,
+          50
+        ],
+        "xAxis": [
+          "event_type"
+        ],
+        "displayName": "事件类型分布"
+      },
+      "type": "pie"
+    },
+    {
+      "title": "actiontrail-dashboard-event-source",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select ip_to_country(\"event.sourceIpAddress\") as country, count(1 ) as PV  group by country",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "yAxis": [
+          "PV"
+        ],
+        "yPos": 2,
+        "height": 5,
+        "xPos": 0,
+        "width": 5,
+        "xAxis": [
+          "country"
+        ],
+        "displayName": "事件来源分布"
+      },
+      "type": "world-map"
+    },
+    {
+      "title": "actiontrail-dashboard-event-service-source",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select \"event.serviceName\" as service, count(1 ) as cnt  group by service order by cnt DESC  limit 20",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "yAxis": [
+          "cnt"
+        ],
+        "yPos": 7,
+        "height": 5,
+        "xPos": 5,
+        "legendPosition": "right",
+        "width": 5,
+        "pieType": "ring",
+        "margin": [
+          30,
+          100,
+          40,
+          50
+        ],
+        "xAxis": [
+          "service"
+        ],
+        "displayName": "事件来源服务分布"
+      },
+      "type": "pie"
+    },
+    {
+      "title": "actiontrail-dashboard-event-service-number",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select count(distinct \"event.serviceName\") as cnt",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "fontColor": {
+          "g": 255,
+          "b": 255,
+          "r": 255,
+          "a": 1
+        },
+        "yPos": 0,
+        "descriptionSize": 24,
+        "width": 2,
+        "fontSize": 32,
+        "bgColor": {
+          "g": 204,
+          "b": 228,
+          "r": 44,
+          "a": 1
+        },
+        "unit": "",
+        "height": 2,
+        "unitSize": 14,
+        "xPos": 4,
+        "description": "",
+        "showTitle": true,
+        "xAxis": [
+          "cnt"
+        ],
+        "displayName": "来源服务数"
+      },
+      "type": "number"
+    },
+    {
+      "title": "actiontrail-dashboard-event-area-number",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "__topic__: actiontrail_audit_event | select count(distinct \"event.acsRegion\") as cnt",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "fontColor": {
+          "g": 255,
+          "b": 255,
+          "r": 255,
+          "a": 1
+        },
+        "yPos": 0,
+        "descriptionSize": 24,
+        "width": 2,
+        "fontSize": 32,
+        "bgColor": {
+          "g": 204,
+          "b": 228,
+          "r": 44,
+          "a": 1
+        },
+        "unit": "",
+        "height": 2,
+        "unitSize": 14,
+        "xPos": 6,
+        "description": "",
+        "showTitle": true,
+        "xAxis": [
+          "cnt"
+        ],
+        "displayName": "来源区域数"
+      },
+      "type": "number"
+    },
+    {
+      "title": "actiontrail-dashboard-pv-uv",
+      "search": {
+        "topic": "",
+        "logstore": "actiontrail_cloud_trail",
+        "start": "-2592000s",
+        "query": "*  | select date_trunc('day', __time__) AS dt, count(1) as pv,  count(distinct \"event.sourceIpAddress\" ) as uv group by dt order by dt",
+        "end": "now"
+      },
+      "action": {},
+      "display": {
+        "intervalArray": [],
+        "yAxisRight": [],
+        "yAxis": [
+          "pv",
+          "uv"
+        ],
+        "yPos": 2,
+        "height": 5,
+        "xPos": 5,
+        "legendPosition": "right",
+        "width": 5,
+        "margin": [
+          30,
+          100,
+          40,
+          50
+        ],
+        "xAxis": [
+          "dt"
+        ],
+        "displayName": "PV/UV趋势"
+      },
+      "type": "line"
+    }
+  ],
+  "description": "",
+  "dashboardName": "actiontrail_cloud_trail_dashboard",
+  "attribute": {},
+  "displayName": "操作审计报表"
+}

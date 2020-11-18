@@ -1,0 +1,148 @@
+{
+  "index_mode": "v2",
+  "keys": {
+    "event": {
+      "caseSensitive": false,
+      "chn": false,
+      "json_keys": {
+        "acsRegion": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "apiVersion": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "errorCode": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "errorMessage": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "eventId": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "eventName": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "eventSource": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "eventType": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "eventVersion": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "requestId": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "requestParameters.HostId": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "requestParameters.Name": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "requestParameters.Region": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "serviceName": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "sourceIpAddress": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "userAgent": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "userIdentity.accessKeyId": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "userIdentity.accountId": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "userIdentity.principalId": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "userIdentity.type": {
+          "doc_value": true,
+          "type": "text"
+        },
+        "userIdentity.userName": {
+          "doc_value": true,
+          "type": "text"
+        }
+      },
+      "token": [
+        ",",
+        " ",
+        "'",
+        "\"",
+        ";",
+        "=",
+        "(",
+        ")",
+        "[",
+        "]",
+        "{",
+        "}",
+        "?",
+        "@",
+        "&",
+        "<",
+        ">",
+        "/",
+        ":",
+        "\n",
+        "\t",
+        "\r"
+      ],
+      "type": "json"
+    }
+  },
+  "line": {
+    "caseSensitive": false,
+    "chn": false,
+    "token": [
+      ",",
+      " ",
+      "'",
+      "\"",
+      ";",
+      "=",
+      "(",
+      ")",
+      "[",
+      "]",
+      "{",
+      "}",
+      "?",
+      "@",
+      "&",
+      "<",
+      ">",
+      "/",
+      ":",
+      "\n",
+      "\t",
+      "\r"
+    ]
+  }
+}
