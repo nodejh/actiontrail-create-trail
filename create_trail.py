@@ -6,17 +6,23 @@ from aliyunsdkactiontrail.request.v20171204.StartLoggingRequest import StartLogg
 
 
 # 华东 1 (杭州)  Region 
+# cn-hangzhou region
 region = 'cn-hangzhou'
 # 用户访问密钥对中的AccessKey ID
+# The access key id of your account
 access_key_id = 'ABCDEFGHIJK****'
 # 用户访问密钥对中的AccessKey Secret
+# The access secret key of your account
 access_key_secret = 'OPQRSTUV****'
 # 阿里云账号ID
+# The root account id
 account_id = '1234567'
 
 # 跟踪名称
+# The trail name
 trail_name = 'cloud_trail'
-# 日志项目名称，阿里云全局唯一
+# 用来存储操作日志的日志项目
+# The SLS Log Project name to save action events
 log_project_name = 'cloud-trail-project'
 
 
@@ -24,6 +30,7 @@ client = AcsClient(access_key_id, access_key_secret, region)
 
 
 # 创建跟踪
+# Create a trail
 sls_project_arn = 'acs:log:{region}:{account_id}:project/{log_project_name}'.format(
     region=region,
     account_id=account_id,
@@ -31,19 +38,20 @@ sls_project_arn = 'acs:log:{region}:{account_id}:project/{log_project_name}'.for
 )
 request = CreateTrailRequest()
 request.set_accept_format('json')
-# 设置跟踪名称
 request.set_Name(trail_name)
-# 设置 SLS project arn
 request.set_SlsProjectArn(sls_project_arn)
-# 跟踪所有事件
+# 跟踪所有类型的事件（读事件和写事件）
+# Trail events of all types, includes `write` events and `read` events
 request.set_EventRW("All")
 # 跟踪所有地域
+# Trail events of all regions
 request.set_TrailRegion("All")
 response = client.do_action_with_exception(request)
 print(str(response, encoding='utf-8'))
 
 
 # 启用跟踪
+# Start a trail
 request = StartLoggingRequest()
 request.set_accept_format('json')
 request.set_Name(trail_name)

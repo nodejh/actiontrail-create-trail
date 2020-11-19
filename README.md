@@ -1,20 +1,30 @@
-## 通过 SDK 创建跟踪
+## Create Trail By SDK
 
-- 编程语言: python3
+English | [简体中文](./README-zh_CN.md)
 
-目前创建跟踪分为两步：
 
-- 配置日志服务 `create_log.py`
-- 创建并启用跟踪 `create_trail.py`
+- Language: python3
 
-### 配置日志服务
+There are currently two steps to creating a trail:
+
+- Create Log Project and Log Store
+- Create and start a trail
+
+### 文件说明
+
+- [create_log.py](./create_log.py) Create Log Project and Log Store
+- [create_trail.py](./create_trail.py) Create and start a trail
+- [log_config/log_index.json](./log_config/log_index.json) SLS Log Index config
+- [log_config/log_dashboard.json](./log_config/log_dashboard.json) SLS Log Dashboard config
+
+### Create Log Project and Log Store:
 
 ```sh
 $ pip install -U aliyun-log-python-sdk
 $ python create_log.py
 ```
 
-### 创建并启用跟踪
+### Create and start a trail to Log Project
 
 ```sh
 $ pip install aliyun-python-sdk-core
