@@ -10,7 +10,7 @@ There are currently two steps to creating a trail:
 - Create Log Project and Log Store
 - Create and start a trail
 
-### 文件说明
+### Files
 
 - [create_log.py](./create_log.py) Create Log Project and Log Store
 - [create_trail.py](./create_trail.py) Create and start a trail

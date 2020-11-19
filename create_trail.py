@@ -25,7 +25,6 @@ trail_name = 'cloud_trail'
 # The SLS Log Project name to save action events
 log_project_name = 'cloud-trail-project'
 
-
 client = AcsClient(access_key_id, access_key_secret, region)
 
 

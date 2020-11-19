@@ -3,6 +3,7 @@ from aliyun.log import LogClient
 from aliyun.log import IndexConfig
 import time
 
+
 def get_json_data(path):
     with open(path) as f:
         return json.load(f)
